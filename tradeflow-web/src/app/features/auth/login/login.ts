@@ -48,7 +48,7 @@ export class Login {
         .pipe(finalize(() => this.submitting.set(false)))
         .subscribe({
           next: () => this.router.navigateByUrl(this.returnUrl() || '/'),
-          error: () => (error: HttpErrorResponse) => this.serverError.set(errorMessage(error))
+          error: (error: HttpErrorResponse) => this.serverError.set(errorMessage(error))
         });
   }
 }

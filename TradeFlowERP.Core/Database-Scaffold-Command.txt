@@ -1,0 +1,6 @@
+﻿
+*!IMPORTANT: DO NOT CHANGE Project and StartupProject below!*
+
+Use the following command to scaffold CyrusDbContext:
+
+Scaffold-DbContext "Server=DESKTOP-LI7I2V4\SQLEXPRESS;Database=TradeFlowERP;TrustServerCertificate=True;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context AppDbContext -Force -NoOnConfiguring -Project TradeFlowERP.Core -StartupProject TradeFlowERP.Core

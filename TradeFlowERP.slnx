@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="TradeFlowERP.Web/TradeFlowERP.csproj" />
+  <Project Path="TradeFlowERP.Core/TradeFlowERP.Core.csproj" Id="8dc2a839-c96f-44bb-b45b-6940db41324f" />
+  <Project Path="TradeFlowERP/TradeFlowERP.csproj" />
 </Solution>

@@ -11,7 +11,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error: unknown) => {
-      if (error instanceof HttpErrorResponse){
+      if (error instanceof HttpErrorResponse && !req.url.endsWith('/auth/login')){
         if (error.status === 401){
           auth.logout();
           toast.warning('Your session has ended. Please sign in again.');

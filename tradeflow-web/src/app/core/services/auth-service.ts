@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { StorageService } from './storage-service';
 import { Router } from '@angular/router';
 import { LoginRequest } from '../models/Auth/login-request';
-import { finalize, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LoginResponse } from '../models/Auth/login-response';
 import { APP_SETTINGS } from '../config/app-settings.development';
 
@@ -39,15 +39,9 @@ export class AuthService {
         );
     }
 
-    logout() : Observable<void>{
-        return this.http.post<void>(
-            this.baseApiUrl + '/auth/logout', {}
-        ).pipe(
-            finalize(() => {
-                this.session.set(null);
-                this.storage.remove('session');
-                void this.router.navigate(['/login']);
-            })
-        );
+    logout() : void {
+        this.session.set(null);
+        this.storage.remove('session');
+        void this.router.navigate(['/login']);
     }
 }

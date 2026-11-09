@@ -5,7 +5,7 @@ const APP_Settings_Dev : AppSettings = {
     isProduction: false,
     appName: 'TradeFlow ERP (DEVELOPMENT)',
     version: 'v1.0.0',
-    apiBaseUrl: 'http://localhost:5029/api',
+    apiBaseUrl: 'http://localhost:5106/api',
     currency: 'INR',
     locale: 'en-IN',
     storagePrefix: 'tradeFlowDev.'
