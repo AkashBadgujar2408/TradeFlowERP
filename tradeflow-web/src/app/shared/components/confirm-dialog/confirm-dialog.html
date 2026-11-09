@@ -1,0 +1,24 @@
+@if (confirm.request(); as req) {
+      <div class="modal d-block app-modal" role="alertdialog" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content confirm-dialog">
+            <div class="modal-body text-center">
+              <div class="confirm-icon text-bg-{{ req.variant }}">
+                <i class="fa-solid" [class.fa-trash-can]="req.variant === 'danger'" [class.fa-circle-question]="req.variant !== 'danger'"></i>
+              </div>
+              <h2 class="h5 mb-2">{{ req.title }}</h2>
+              @if (req.message) {
+                <p class="text-body-secondary mb-0">{{ req.message }}</p>
+              }
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-light" (click)="confirm.close(false)">Cancel</button>
+              <button type="button" class="btn btn-{{ req.variant }}" appAutofocus (click)="confirm.close(true)">
+                {{ req.confirmText }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-backdrop show"></div>
+    }

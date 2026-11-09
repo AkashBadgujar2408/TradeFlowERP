@@ -1,0 +1,61 @@
+<div class="login-page">
+    <div class="login-hero">
+        <div class="login-hero-inner">
+            <span class="brand-logo brand-logo-lg">
+                <img src="tradeflow_logo_full.png" alt="TradeFlowERP" width="180px" height="120px" />
+            </span>
+            <h1>{{ appSettings.appName }}</h1>
+            <p>TradeFlowERP</p>
+            <ul class="login-features">
+                <li><i class="fa-solid fa-table"></i> AG Grid lists with search, filters, export and bulk actions</li>
+                <li><i class="fa-solid fa-layer-group"></i> Header/detail forms that save to several tables</li>
+                <li><i class="fa-solid fa-code"></i> Live request payloads and an API console</li>
+                <li><i class="fa-solid fa-chart-pie"></i> Sales and inventory dashboards</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="login-panel">
+        <form class="login-card" [formGroup] = "form" (ngSubmit)="submit()" novalidate>
+            <h2>Welcome back</h2>
+            <p class="text-body secondary mb-4">Sign in to continue.</p>
+
+            @if(serverError()){
+                <div class="alert alert-danger py-2"><i class="fa fa-solid fa-circle-exclamation me-1"></i></div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <div class="input-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input id="username" class="form-control" formControlName="username" autocomplete="username" appAutofocus />
+                </div>
+                <app-field-error [control]="form.controls.username" label="Username" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-lock"></i>
+                    <input id="password" class="form-control"
+                    [type]="showPassword() ? 'text' : 'password'"
+                    formControlName = "password" autocomplete="current-password" />
+                    <button type="button" class="input-icon-end" (click)="showPassword.set(!showPassword())" aria-label="Show password">
+                        <i class="fa-regular" [class.fa-eye]="!showPassword()" [class.fa-eye-slash]="showPassword()"></i>
+                    </button>
+                </div>
+                <app-field-error [control]="form.controls.password" label="password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="submitting()">
+                @if(submitting()){
+                    <span class="spinner-border spinner-border-sm"></span> Signing in...
+                }
+                @else {
+                    Sign in <i class="fa-solid fa-arrow-right ms-1"></i>
+                }
+            </button>
+        </form>
+    </div>
+
+</div>

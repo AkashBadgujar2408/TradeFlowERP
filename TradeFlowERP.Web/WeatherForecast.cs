@@ -1,4 +1,4 @@
-namespace TradeFlowERP.Web
+namespace TradeFlowERP
 {
     public class WeatherForecast
     {

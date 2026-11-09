@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TradeFlowERP.Web.Controllers
+namespace TradeFlowERP.Controllers
 {
     [ApiController]
     [Route("[controller]")]
